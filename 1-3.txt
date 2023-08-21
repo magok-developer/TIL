@@ -1,0 +1,505 @@
+★ 프로그래밍이란
+  · 컴퓨터와 소통하는 방법
+  · 컴퓨터에게 전달하는 정보를 어떻게 보여주고 제어할지 결정 가능
+  · 웹 개발을 하기 위한 언어로 브라우저와 소통
+
+HTML
+  정보 또는 설계도
+
+CSS
+  디자인 또는 스타일링
+
+JavaScript
+  기능과 효과
+
+★ 웹사이트 제작시 고려 사항
+  1. 웹 표준
+      웹 사이트를 작성할 때 따라야하는 공식 표준이나 기술 규격
+  2. 웹 접근성
+      장애의 여부와 상관없이 모두가 웹사이트를 이용 할 수 있게 하는 방식
+  3. 크로스 브라우징
+      모든 브라우저 또는 기기에서 사이트가 제대로 작동하도록 하는 기법
+
+---
+
+★ HTML
+
+HTML
+Hyper Text Markup Language
+웹 사이트에서 눈에 보이는 정보나 특정 구역을 설정할 때 사용하는 언어
+
+☆ HTML 태그 구성 요소
+
+ex) <열린태그 속성 = "속성값"> 컨텐츠 </닫힌태그>
+
+  · 태그명
+    HTML이 갖고있는 고유의 기능
+
+  · 컨텐츠
+    열린태그, 닫힌태그 사이에 있는 내용
+
+  · 속성
+    HTML 태그가 갖고있는 추가 정보
+
+  · 속성값
+    어떤 역할을 수행할지 구체적인 명령을 진행하는 것
+
+☆ HTML 문서의 기본 구조
+
+ex) <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="UTF-8">
+      <title>Document</title>
+    </head>
+    <body>
+    </body>
+    </html>
+
+  · <!DOCTYPE html>
+    HTML 5 라는 신조어로 문서를 선언하는 태그
+
+  · <html>...</html>
+    HTML 문서의 시작과 끝을 의미
+    모든 HTML 태그들은 <html> 태그 안쪽에 입력
+
+  · <head>...</head>
+    웹 사이트의 간단한 요약 정보를 담는 영역
+    웹 사이트에서 노출되지 않는 정보
+
+  · <body>...</body>
+    웹 사이트에서 눈에 보이는 정보를 담는 영역
+    이미지나 텍스트처럼 출력되는 정보
+
+  · <meta charset="UTF-8">
+    character setting의 약자를 나타내는 문자 코드
+    모든 문자를 웹 브라우저에서 깨짐 없이 표시하겠다는 의미
+
+  · <title>...</title>
+    웹 사이트 탭에 나타나는 제목을 적는 태그
+
+---
+
+☆<img> 태그
+  
+ex) <img src="이미지 경로" alt="이미지 정보 텍스트">
+
+  · <img> 태그
+    정보성을 갖고 있는 이미지를 삽입. 닫힌 태그 없음.
+  
+  · src 속성
+    삽입할 이미지 파일 경로
+
+  · alt 속성
+    웹 사이트가 이미지를 출력하지 못했을 경우, 텍스트 정보로 대체.
+
+☆ <h> 태그
+
+ex) <h1>...</h1>
+    <h2>...</h2>
+    <h3>...</h3>
+
+  · Heading의 약자로 제목이나 부제목을 표현
+
+  · 숫자 값이 클수록 폰트 사이즈가 작음. 즉, 숫자는 정보의 중요도를 나타냄.
+
+  · <h1> 태그는 가장 중요한 정보를 담으므로, 하나의 html 문서에서 한 번만 사용됨.
+
+☆ <p> 태그
+
+ex) <p>...</p>
+
+  · Paragraph의 약자로 본문 내용을 표현
+  
+  · 웹 사이트의 중요 정보를 담는 태그
+
+  · 나타내고자 하는 내용을 열린 태그와 닫힌 태그 사이에 입력
+
+☆ <ul> 태그
+
+ex) <ul>
+      <li>...</li>
+      <li>...</li>
+      <li>...</li>
+    </ul>
+
+  · Unordered list의 약자로, 순서가 없는 리스트 생성.
+
+  · 메뉴 버튼을 만들때 사용되는 태그
+
+  · <ol>, <ul> 태그의 불렛 설정 -> 리스트 앞의 숫자 또는 특수기호 제거
+    list-style: none;
+
+  · 비슷한 예시로 <a> 태그의 텍스트 설정도 있다 -> 링크 효과 제거
+    text-decoration: none;
+
+☆ <header>,<nav> 태그
+
+ex) <header>
+      <nav>
+      ...
+      </nav>
+    </header>
+
+  · <header> 태그
+    웹 사이트의 머리글을 담는 공간
+
+  · <nav> 태그
+    메뉴 버튼을 담는 공간 (navigation)
+    <ul>,<li>,<a>와 함께 사용
+
+☆ <main> 태그
+
+ex) <main role="main">
+      <article>
+      ...
+      </article>
+    </main>
+
+  · 문서의 주요 내용을 담는 태그
+
+  · IE (internet Exxplorer) 는 지원하지 않으므로 role="main" 속성 필수 입력
+
+☆ <article> 태그
+
+ex) <main role="main">
+      <article>
+        <h2>...</h2>
+        ...
+      </article>
+    </main>
+
+  · 문서의 주요 이미지나 텍스트 등의 정보를 담고 구역을 설정하는 태그
+
+  · 태그 내에 구역을 대표하는 타이틀 <h> 태그가 존재해야 함
+
+☆ <footer> 태그
+
+ex) <footer>
+      <div>
+      ...
+      </div>
+    </footer>
+
+  · 가장 하단에 들어가는 정보를 표기할 때 사용 (ex. 사업자등록번호, 주소..)
+
+☆ <div> 태그
+
+ex) <div>
+    ...
+    </div>
+
+  · 임의의 공간을 만들 때 사용
+
+---
+
+☆ Block 요소와 Inline 요소
+
+ex) Block 요소
+<p>Hello</p>
+
+ex) Inline 요소
+<a>Hello</a>
+
+  · 두 요소를 구분 짓는 세가지 주요 특징
+    줄바꿈 현상, 가로 세로, 상 하 배치
+
+☆ Block 요소
+
+  · y축 정렬 형태로 출력 (줄바꿈 현상 나타남)
+
+  · 공간을 만들 수 있고, 상 하 배치 작업 가능
+
+  · <p> 태그가 대표적
+
+  · width, height 값 사용 가능 -> 공간 만들기 가능
+
+  · margin, padding 값 사용 가능 -> 상하 배치 작업 가능
+
+☆ Inline 요소
+
+  · x축 정렬 형태로 출력 (한 줄에 출력)
+
+  · 공간을 만들 수 없고, 상 하 배치 작업 불가능
+
+  · width, height 값 적용 불가
+
+  · margin-top, margin-bottom, padding-top, padding-bottom 값 적용 불가
+
+---
+
+★ CSS
+
+CSS
+Cascading Style Sheet
+
+  · 정보(HTML)와 디자인(CSS)의 분리
+
+  · 문서의 레이아웃과 스타일 정의
+
+  · HTML로 작성된 정보를 꾸며주는 언어
+
+☆ CSS 구성 요소
+
+ex) 선택자 { 속성 : 속성값; }
+
+  · 선택자
+    디자인을 적용할 HTML 영역
+
+  · 속성
+    어떤 디자인을 적용할지 정의
+
+  · 속성값
+    어떤 역할을 수행할지 구체적으로 명령. 세미콜론(;) 필수 입력.
+
+☆ CSS 연동 방법 세 가지
+
+  · Inline Style Sheet
+    HTML 태그 안에 직접 원하는 스타일을 적용
+    ex) <h1 style="color: red;"> hello </h1>
+
+  · Internal Style Sheet
+    HTML <head> 태그 안에 <style> 태그 안에 넣기
+    ex) <head>
+        <style>
+          h1 { color: red; }
+        </style>
+        </head>
+  
+  · External Style Sheet
+    CSS 파일을 따로 만든 뒤 HTML 파일에 <link> 태그로 연결
+    ex) <head>
+          <link rel="stylesheet" href="css파일명.css">
+        </head>
+
+---
+
+☆ CSS 선택자
+
+  · HTML의 어떤 요소에 CSS를 적용할 것인지
+
+  · Type
+    HTML 특정 태그에 스타일 적용
+
+  · Class
+    태그에 대한 별명
+    클래스 이름으로 특정 위치에 스타일을 적용
+    ex) HTML
+        <h1 class="title">hello</h1>
+
+        CSS
+        .title { color: red; }
+
+  · ID
+    태그의 이름
+    ID를 이용하여 스타일을 적용
+    ex) HTML
+        <h1 id="coding">hello</h1>
+
+        CSS
+        #coding { color: blue; }
+
+---
+
+☆ 부모 자식 관계
+
+ex) <header>
+      <h1>...</h1>
+      <p>...</p>
+    </header>
+    <footer>
+      <h1>...</h1>
+      <p>...</p>
+    </footer>
+
+  · <header>와 <h1>, <p> : 부모 자식 관계
+
+  · <h1>과 <p> : 형제 관계
+
+  · CSS 작성 ex
+    header h1 {}
+
+☆ 캐스케이딩
+
+CSS의 우선순위를 결정하는 세가지 요소
+
+  · 작성 순서
+
+  · 디테일
+
+  · 선택자
+
+☆ 순서에 의한 캐스케이딩
+
+ex) p { color: red;}
+    p { color: blue;}
+
+  · 나중에 적용한 속성 값의 우선순위가 높음
+    blue로 표시됨
+
+☆ 디테일에 의한 캐스케이딩
+
+ex) header p { color: red;}
+    p { color : blue;}
+
+  · 더 구체적으로 작성된 선택자의 우선순위가 높음
+    red로 표시됨
+
+☆ 선택자에 의한 캐스케이딩
+
+  · style > id > class > type 순으로 우선순위가 높음
+
+---
+
+☆ width
+
+  · 선택한 요소의 넓이를 설정
+    고정값 (px), 가변값 (%)
+
+☆ height
+
+  · 선택한 요소의 높이를 설정
+    고정값 (px), 가변값 (%)
+
+☆ font-size
+
+  · 글자의 크기
+
+☆ font-family
+
+  · 글자 폰트
+
+  · 브라우저마다 지원하는 폰트가 다름.
+    입력한 순서대로 우선순위 적용.
+    sans-serif는 마지막에 작성하는 디폴트 값.
+
+☆ font-style
+
+  ·글자 모양 (기울기)
+
+☆ font-weight
+
+  · 글자 두께
+
+  · 100~900 사이의 숫자를 입력 또는 bold 로 표기
+
+☆ border-style
+
+  ·테두리의 스타일 (solid, dotted 등)
+
+☆ border-width
+
+  · 테두리의 굵기
+
+☆ border-color
+
+  · 테두리의 색상
+
+☆ border
+
+  · 쉼표를 사용하지 않고 띄어쓰기로 한 줄에 이어 쓸 수 있음
+
+  ex) border: solid 10px red;
+
+☆ background-color
+
+  · 배경 색상
+
+☆ background-image
+
+  · 배경 이미지
+
+  ex) background-image: url(이미지 경로);
+
+☆ background-repeat
+
+  · 배경의 반복 설정
+
+  · x축으로 반복 repeat-x
+  · y축으로 반복 repeat-y
+  · 반복하지 않음 no-repeat
+
+☆ background-position
+
+  · 특정 공간 안에 들어가는 이미지의 위치 지정
+
+  · top, bottom, center, left, right 등
+
+☆ background
+
+  · 쉼표를 사용하지 않고 띄어쓰기로 한 줄에 이어 쓸 수 있음
+
+  ex) background: yellow url(이미지 경로) no-repeat left;
+
+---
+
+★ 박스 모델 구조
+
+  · margin > border > padding > content
+
+☆ margin
+
+  · 외부 여백
+  · top right bottom left 순서로 한 줄에 작성 가능
+
+☆ padding
+
+  · 내부 여백
+  · top right bottom left 순서로 한 줄에 작성 가능
+
+☆ margin 병합 현상
+
+  1. 형제 지간의 margin 병합
+
+  ex) .box1 { margin-bottom: 150px; }
+      .box2 { margin-top: 100px; }
+
+    · margin-bottom과 margin-top 중 숫자가 큰 값으로 적용
+
+  2. 부모 자식간의 margin 병합
+
+    · 자식 요소에 margin을 사용하면 자식 요소 뿐만 아니라 부모 요소에도 영향을 미침
+
+★ 레이아웃에 영향을 미치는 CSS 속성
+
+☆ display
+
+ex) p { display: inline; }
+    a { display: block; }
+    a { display: inline-block; }
+
+  · block과 inline 요소의 성격을 바꿀때 사용
+    inline-blick을 사용하면 두 요소의 성격을 모두 가짐
+
+☆ float
+
+ex) .left { float: left; }
+    .right { float: right; }
+
+  · 선택된 요소를 왼쪽 끝 혹은 오른쪽 끝에 정렬 시키고자 할 때 사용
+  
+  · 이름 그대로 선택자를 띄워 새로운 레이어층을 만드는 것
+  
+  · 레이어가 겹쳐지지 않는 상태로 정렬시키고 싶은 경우 연속적으로 입력
+
+☆ clear
+
+ex) footer { clear: both; }
+
+  · float에 대한 속성을 제어하고자 할 때
+
+☆ 브라우저와 공간 사이의 공백 제거하기
+
+ex) html,body {
+      margin: 0;
+      padding: 0;
+    }
+
+or
+
+ex) * {
+      margin: 0;
+      padding: 0;
+    }
+
+  · <html>와 <body> 태그는 margin과 padding 값을 가지므로 초기화를 해주어야 함

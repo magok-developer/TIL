@@ -1,0 +1,193 @@
+★
+
+☆ transform
+
+  · 웹 사이트에서 특정 영역에서 어떤 오브젝트를 각도를 틀거나, 크기를 조절 하거나, 위치를 변경할때 사용
+
+  · rotate (각도deg)
+    입력한 각도만큼 회전
+    음수도 입력 가능
+
+    ex) transform: rotate(45deg);
+  
+  · scale(숫자, 숫자)
+    숫자는 비율을 의미
+    width를 2배, height를 3배 확대
+
+    ex) transform: scale(3, 5);
+
+  · skew(x축deg, y축deg)
+    x축 y축을 기준으로 입력한 각도만큼 비틂
+
+    ex) transform: skew(10deg, 20deg);
+
+  · translate(x축, y축)
+    선택한 오브젝트의 좌표 변경
+
+    ex) transform: translate(100px, 200px);
+
+☆ prefix 접두사
+
+  다른 버전의 브라우저에서의 실행을 원할 경우
+
+  · -webkit-
+    크롬, 사파리
+
+  · -moz-
+    파이어폭스
+
+  · -ms-
+    익스플로러 9.0
+  
+  · -o-
+    오페라
+
+☆ transition
+
+
+  · property
+    효과를 적용하고자하는 css 속성
+
+    ex) transition-property: width;
+
+  · duration
+    효과가 나타나는데 걸리는 시간
+
+    ex) transition-duration: 2s;
+
+  · timing-function
+    효과의 속도
+    linear은 '일정하게'라는 의미
+  
+    ex) transition-timing-function: linear;
+
+  · delay
+    특정 조건하에서 효과 발동
+    1s는 '1초 후' 라는 의미
+
+    ex) transition-delay: 1s;
+
+  · 가상 선택자:hover
+    css에서 미리 만들어 놓은 클래스
+    '마우스를 올렸을 때' 라는 조건
+
+    ex) .transition:hover { color: red; }
+
+  · transition 종합
+
+  ex) .transition {
+        transition: width 2s linear 1s;
+      }
+
+      .transition:hover { width: 300px; }
+
+    마우스에 올리면 1초 후에 width 값이 300px로, 2초 동안 속도 일정하게 변하는 애니메이션 효과 발동
+    초가 두개일땐 duration이 먼저 delay가 나중에
+    초가 하나인 경우 duration임
+
+☆ animation
+
+  조건에 상관 없이 어떠한 이벤트를 적용 하고자 할때 사용
+  웹 사이트에 접속 하자마자 마우스 움직임 없이 효과 적용
+
+  · name
+    내가 만들 애니메이션에 대한 이름
+
+    ex) animation-name: changeColor (임의로 작성);
+
+  · duration
+    애니메이션이 동작하는데 소요되는 시간
+
+    ex) animation-duration: 3s;
+
+  · timing-function
+    속도의 성격을 규정
+
+    ex) animation-timing-function: linear;
+
+  · delay
+    웹 사이트에 접속 했을때 몇초 후에 애니메이션이 동작되게 할 것 인가
+
+    ex) animation-delay: 1s;
+
+  · iteration-count
+    애니메이션 반복 횟수
+
+    ex) animation-iteration-count: 6;
+
+  · direction
+    애니메이션 진행 방향
+
+    · alternate:from -> to -> from
+    · normal: from -> to ,from -> to
+    · reverse: to -> from ,to -> from
+
+    ex) animation-direction: alternate;
+
+  · @keyframes
+    변화를 줄 어떤 실제 결과값을 입력
+
+    ex) @keyframes changeColor {
+          from { color: red; }
+          to { color: blue; }
+         }
+
+☆ 애니메이션 응용
+
+ex) .box1 {
+      animation: rotation 1500ms linear infinite alternate;
+    }
+    
+    @keyframes rotation {
+      from { transform: rotate(-10deg); }
+      to { transform: rotate(10deg); }
+    }
+
+ex) .box1 {
+      animation: rotation 3s linear 1s 6 alternate;
+    }
+
+    @-webkit-keyframes rotation {
+      from {-webkit- transform: rotate(-10deg); }
+      to {-webkit- transform: rotate(10deg); }
+    }
+
+    프리픽스를 애니메이션에 적용 할 수 있다.
+
+---
+
+★ 미디어 쿼리
+
+  · PC 뿐만 아니라 모바일과 태블릿에도 대응되는 웹사이트를 만들기 위해 모바일에 대응되는 반응형 또는 적응형 웹사이트를 만들 때 사용되는 CSS 구문
+
+  ex) @media (min-width: 320px) and (max-width: 800px) {
+    width: 300px;
+    height: 300px;
+    background-color: yellow;
+  }
+
+  min-width와 max-width로 브라우저 가로폭 설정
+  브라우저의 가로폭이 최소 320px, 최대 800px이 되었을 경우, 중괄호 안의 css 속성으로 대체하겠다는 의미
+
+☆ 주의 사항
+
+  · viewport
+    다양한 디지털 기기의 화면 상에 표시되는 영역을 의미
+    너비와 배율을 설정할 때 사용하는 메타 태그의 속성 중 하나
+    너비와 배율은 content 속성에 작성
+
+    ex) <meta name="viewport" content="width=deviece-dieth, initial-scale=1.0">
+
+      * width=deviece-width
+        viewport의 가로폭 = 디바이스의 가로폭
+      
+      * initial-scale=1.0
+        비율은 항상 1.0
+
+    · 미디어 쿼리가 제대로 작동하지 않는 문제가 발생할 수 있으므로
+      viewport로 너비와 배율을 설정해야 모바일 디바이스에서 의도한 화면을 볼 수 있다
+  
+  · CSS 속성 상속
+
+    · 미디어 쿼리 외부 영역에 있는 CSS 속성을 상속 받음
+    · 만약 상속을 받지 않고자 하면 속성값으로 none 입력

@@ -1,0 +1,90 @@
+파일을 읽는 FileReader
+  파일을 읽기 위해 FileReader 객체를 생성합니다. 다음과 같이 객체를 만들 수 있습니다.
+
+  let reader = new FileReader();
+
+FileReader 객체에서 제공하는 readAsDataURL 메서드를 이용해 input 태그를 이용해 업로드된 파일을 넘겨줄 수 있습니다.
+
+  reader.readAsDataURL(inputElement.files[0]);
+
+  input 태그가 type="file"이면, input 요소에 files로 접근하면 사용자가 선택해서 읽은 파일에 대한 정보를 얻어낼 수 있습니다.
+
+FileReader에 readAsDataURL 메서드를 실행한 후 정상적으로 파일을 읽었을 때는 다음과 같이 onload 메서드에 함수를 넣어 코드 흐름을 제어할 수 있습니다.
+
+reader.onload = function() {
+  /* source code... */ 
+}
+
+만약 파일을 읽다가 에러가 발생한다면 onerror 메서드에 함수를 넣어 코드 흐름을 제어합니다.
+
+reader.onerror = function() {
+  /* source code... */ 
+}
+
+---
+
+브라우저 사이드 데이터베이스 IndexedDB
+  IndexedDB는 서버에 두는 데이터베이스가 아닌 웹사이트를 이용하고 있는 사용자 브라우저에 종속해 데이터를 저장할 수 있습니다. 쿠키나 로컬 스토리지 등보다 더 많은 데이터를 저장할 수 있습니다. 보다 자세한 내용은 다음 문서를 확인해주세요.
+
+  1. Database 생성하기
+
+  const request = indexedDB.open(databaseName, version);
+
+  indexDB 객체에서 open메서드에서 데이터베이스 이름과 버전을 지정해줍니다.
+  버전은 정수만 가능합니다. open 메서드가 실행되고나서 IDBOpenDBRequest 객체가 리턴됩니다.
+
+  IDBOpenDBRequest객체 프로퍼티에는 다양한 기능이 있지만, 본 실습에서 사용하는 프로퍼티를 중심으로 살펴보겠습니다.
+
+  IDBOpenDBRequest 객체 프로퍼티
+
+    onupgradeneeded: indexedDB의 open메서드를 사용할 때, 현재 버전보다 높은 버전을 사용하면 해당 프로퍼티에 설정한 함수가 실행됩니다.
+    onsuccese: indexedDB의 모든 요청이 정상적으로 끝나면 해당 프로퍼티에 설정한 함수가 실행됩니다.
+
+  2. Object Store 생성하기
+
+  IndexedDB는 데이터베이스 아래 객체 스토어라는 이름으로 또다시 객체를 만들 수 있습니다. 객체 스토어가 모여서 하나의 데이터베이스를 이루는 것과 같이 이해할 수 있습니다.
+
+  보통 앞서서 onupgradeneeded 메서드에서 새로운 객체 스토어를 생성합니다.
+  다음 코드를 살펴보세요.
+
+  request.onupgradeneeded = function () {
+      // 요청의 결과를 리턴합니다.
+      const db = request.result; 
+      //posts라는 객체 스토어를 생성합니다.
+      db.createObjectStore("posts", { autoIncrement: true });
+  };
+
+  객체 스토어는 쉽게 말해 자바스크립트 일반 객체를 생각하면 됩니다. autoIncrement라는 옵션은 자동으로 객체 프로퍼티에 Key를 정수로 1부터 부여합니다.
+
+  3. 객체 스토어에 데이터 저장하기
+  다음 코드를 먼저 살펴봅시다.
+
+  const request = indexedDB.open(databaseName, version);
+
+      request.onsuccess = function () {
+        const db = request.result;
+
+        const transaction = db.transaction("posts", "readwrite");
+
+        const store = transaction.objectStore("posts");
+        store.add(content).onsuccess = cb;
+      };
+
+  indexedDB를 열고 요청된 결과가 성공적이면 결과에 대한 객체의 transaction 메서드를 이용해 posts 객체 스토어를 readwrite 읽고 쓰겠다는 권한을 설정해줍니다. 그리고 objectStore를 통해 객체 스토어를 가져오고 해당 스토어에 add메서드로 데이터를 저장합니다.
+
+  4. 객체 스토어에서 데이터 모두 가져오기
+
+  const request = indexedDB.open(databaseName, version);
+
+      request.onsuccess = function () {
+        const db = request.result;
+        const store = db.transaction("posts").objectStore("posts");
+
+        store.getAll().onsuccess = function (res) {
+          console.log(res.target.result);
+        };
+      };
+
+  앞에서 데이터를 삽입하는 코드까지 이해했다면 앞선 코드도 빠르게 이해할 수 있습니다. 마찬가지로 objectStore로 객체 스토어를 가져온 뒤에 getAll 메서드를 이용해 데이터를 모두 가져올 수 있습니다.
+
+  indexedDB를 이용해 포스트를 최종적으로 등록해봅시다!

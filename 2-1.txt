@@ -1,0 +1,510 @@
+★ 변수
+
+  · 변수 선언은 var, const, let 으로 할 수 있다.
+
+  ☆ var
+
+    · 중복 선언 가능, 재할당 가능
+
+    · 선언한 변수가 동일한 이름으로 중복 선언이 가능
+
+    · 마지막에 할당된 값이 최종적으로 변수에 저장
+
+      var fruit = "apple"; //선언
+
+      console.log(fruit); //apple
+    
+      var fruit = "banana"; //중복 선언
+
+      console.log(fruit); //banana
+      ​
+      fruit = "grape"; //재할당
+
+      console.log(fruit); //grape
+
+  ☆ let
+
+    · 중복 선언 불가능, 재할당 가능
+
+      let fruit = "apple"; //선언
+
+      console.log(fruit); //apple
+
+      let fruit = "banana"; //중복 선언
+
+      console.log(fruit); //Uncaught SyntaxError: Identifier 'fruit' has already been declared
+      ​
+      fruit = "grape"; //재할당
+
+      console.log(fruit); //grape
+
+  ☆ const
+
+    · 중복 선언 불가능, 재할당 불가능
+
+      const fruit = "apple"; //선언
+
+      console.log(fruit); //apple
+
+      const fruit = "banana"; //중복 선언
+
+      console.log(fruit); //Uncaught SyntaxError: Identifier 'fruit' has already been declared
+
+      fruit = "grape"; //재할당
+
+      console.log(fruit); //Uncaught SyntaxError: Identifier 'fruit' has already been declared
+
+  ☆ 변수 선언 및 데이터 저장
+
+    var fruit; //변수 선언 : 데이터를 담을 공간을 생성 하는 것
+
+    fruit = "apple"; //변수 초기화 : 생성된 변수에 데이터를 전달 하는 것
+
+                          ||
+                          V
+
+    var fruit = "apple"; //변수 선언 및 초기화를 일괄로 실행 할 수 있다.
+
+  ☆ 변수 안의 데이터 확인
+
+    var fruit2 = "apple";
+
+    console.log(fruit1); //apple
+    ​
+    var fruit2 = "banana";
+
+    document.write(fruit2); //banana
+
+    ​
+    console.log();
+
+    document.write(); 등 변수 안에 데이터를 확인할 때 사용하는 명령어가 있다.
+
+★ 데이터 타입
+
+  · string 문자열
+
+  · number 숫자
+
+  · function 함수
+
+  · array 배열
+
+  · object 객체
+
+  · boolean 불린 (참/거짓)
+
+  · undefined 정의되지않음
+
+  · null 널
+
+
+  ☆ 문자열
+
+    · var str1 = "Hello World"; //"큰 따옴표"
+
+    · var str2 = 'Hi'; //'작은 따옴표'
+
+    · var str3 = "10"; //큰 따옴표 안에 적혀 있으므로 숫자가 아닌 문자열
+ 
+  ☆ 문자열 주의 사항
+
+    · var str1 = "Hello World'; //큰따옴표, 작은 따옴표 혼용 불가
+
+    · var str2 = "She's a girl"; //아포스트로피 사용시 큰 따옴표 안에 문자를 넣거나
+
+    · var str3 = 'She\'s a girl'; //작은 따옴표 안에 넣을 시 역슬래시를 사용
+
+
+  ☆ 숫자
+
+    · var num1 = 10; //정수
+
+    · var num2 = -10; //음수
+
+    · var num3 = 3.14; //실수
+
+
+  ☆ 함수
+​
+    · function 이름 () {}
+
+    ex) function func1 () {
+
+          console.log("Func1");
+
+        } //함수 생성 : function 키워드를 사용하여 생성
+
+​       func1(); //함수 호출 : 함수 안에 있는 코드를 실행시키겠다는 의미
+​
+
+   ex) var area = function(width, height) { //width, height = 매개변수 : 인자로부터 전달받은 값이 들어가는 통로, 생략 가능
+
+        return width * height; //return : 함수 안에 데이터를 저장할 때 사용
+
+       }
+
+      area(10, 20) // 10, 20 = 인자 : 함수에게 전달하는 데이터
+
+  ☆ 함수 데이터 호출 방법
+
+    var area = function(width, height) {
+
+      return width * height;
+
+    }
+
+    //새 변수를 생성한 후, 그 변수를 console.log()로 감싸기
+
+    var result = area(10, 20);
+
+    console.log(result);
+
+    //함수 자체를 console.log()로 감싸기
+
+    console.log(area(10, 20));
+
+
+  ☆ 배열
+
+    · 비슷한 성격을 갖고 있는 데이터를 하나의 변수 안에서 관리
+
+      var fruit = ["사과", "배", "수박"];
+
+      console.log(fruit); //["사과", "배", "수박"]
+
+  ☆ 배열 데이터 추출
+
+    · 데이터의 좌표값(index) 작성
+
+    · 첫번째 좌표값은 0
+
+    ex) var fruit = ["사과", "배", "수박"];
+
+                       0       1      2
+
+        console.log(fruit[0]); //0번째 인덱스의 데이터 사과 추출
+
+  ☆ 배열 데이터 변경하기
+
+    · 인덱스를 사용하여 접근 후 새로운 데이터 대입
+
+      ex) var fruit = ["사과", "배", "수박"];
+
+          fruit[0] = "포도";
+
+          console.log(fruit); //["포도", "배", "수박"]
+
+
+  ☆ 객체
+
+    · 프로퍼티, 메서드, 데이터로 구성
+
+    · 여러 종류의 데이터 타입 삽입 가능
+
+      ex) var student = {
+
+            name : "jiwon", //key(키) = name, value(값) = jiwon, Property(프로퍼티) = name : "jiwon"
+
+            age : 26,
+
+            skills : ["자바스크립트", "HTML", "CSS"],
+
+            sum : function (num1, num2) { return num1 + num2;} //프로퍼티 값이 함수일 경우 메소드라고 한다.
+
+          }
+
+  ​☆ 객체 데이터 출력하기
+
+    ex) var student = {
+
+        name : "jiwon",
+
+        age : 26,
+
+        skills : ["자바스크립트", "HTML", "CSS"],
+
+        sum : function (num1, num2) { return num1 + num2;}
+
+        }
+
+      console.log(student.name); //객체명.프로퍼티(키)명
+
+      console.log(student['name']); //객체명,["프로퍼티(키)명"]
+
+  ☆ 객체 데이터 변경하기
+
+    ex) var student = {
+
+        name : "jiwon",
+
+        age : 26,
+
+        skills : ["자바스크립트", "HTML", "CSS"],
+
+        sum : function (num1, num2) { return num1 + num2;}
+
+        }
+
+      student.name = "Ha"; //name 프로퍼티의 데이터(값) 변경
+
+      console.log(student.name); //Ha 출력
+​
+
+  ☆ undefined, null
+
+    · undefuned : 변수 안에 데이터를 입력하지 않은 상태 (데이터가 없는 것)
+
+    · null : 개발자가 임의로 변수 안에 빈 데이터를 삽입한 상태 (빈 데이터를 지정한 것)
+
+      var unde;
+
+      var empty = null;
+
+
+  ☆ Boolean
+
+    · 참 또는 거짓 데이터가 들어가 있는 상태
+
+    var t = true;
+
+    var f = false;
+
+
+★ 문자열 프로퍼티, 메소드
+
+  · length : 문자열 길이
+
+  · charAt(인덱스) : 문자 추출
+
+  · split("기준") : 기준으로 문자 나눈 후 배열로 출력
+
+
+  ex) var str1 = "Hello World";
+
+    document.write(str1.length); //문자열 길이 11
+
+    document.write(str1.charAt(0)); //문자 H 추출
+
+    document.write(str1.split(" ")); //공백 기준으로 문자 나눈후 배열 [Hello, World]로 출력
+
+
+★ 배열 프로퍼티, 메소드
+
+  · length : 데이터 개수
+
+  · push("데이터") : 배열 뒤에 데이터 삽입
+
+  · unshift("데이터") : 배열 앞에 데이터 삽입
+
+  · pop() : 배열 뒤의 데이터 제거
+
+  · shift() : 배열 앞의 데이터 제거
+
+
+  ex) var fruit = ["사과", "배", "포도"];
+
+    document.write(fruit.length); //데이터 개수 3
+
+    fruit.push("딸기");
+
+    fruit.unshift("레몬");
+
+    document.write(fruit); //레몬, 사과, 배, 포도, 딸기 추출
+
+    fruit.pop();
+
+    fruit.shift();
+
+    document.write(fruit); //사과, 배, 포도 추출
+
+
+★ Math의 수학 연산 메소드
+
+  · Math.abs(숫자 데이터); : 절대값
+
+  · Math.ceil(숫자 데이터); : 올림
+
+  · Math.floor(숫자 데이터); : 내림
+
+  · Math.random(); : 0~1 사이의 임의 숫자 출력
+
+
+  ex) Math.abs(-3); //절대값 3
+
+      Math.ceil(0.3); //올림 1
+
+      Math.floor(10.9); //내림 10
+
+      Math.random(); //0~1 사이의 임의의 숫자 출력
+
+
+★ 문자를 숫자로 변환하는 메소드
+
+  · parseInt("문자 데이터"); : 정수 형태로 변환
+
+  · parseFloat("문자 데이터"); : 실수 형태로 변환
+
+
+  ex) parseInt("20.6"); //정수 형태의 20으로 변환
+
+      parseFloat("20.6"); //실수 형태의 20.6으로 변환
+
+
+---
+
+
+★ JS 기초 문법 및 활용
+
+  ☆ 연산자
+
+    · 산술 연산자
+      숫자 뿐 아니라 문자열도 산술 연산자 사용 가능
+
+      + 더하기
+      
+      - 빼기
+
+      * 곱하기
+
+      / 나누기
+
+      % 나눗셈 나머지
+
+    · 증감 연산자
+      ++ 1씩 증가
+      -- 1씩 감소
+
+      기호가 앞에 있는 경우 +1 후 출력
+      기호가 뒤에 있는 경우 출력 후 +1
+
+    · 비교 연산자
+
+      == 값이 같다
+      === 데이터 타입과 값이 같다
+      !== 값이 같지 않다
+
+      > >= < <=
+
+      Boolean 데이터 타입인 true 혹은 false 반환
+
+    · 논리 연산자
+
+      &&
+      AND 연산자
+      앞 뒤 조건 모두 참인 경우에만 true
+
+      ex) console.log(10 === 10 && 20 === 30); //false
+
+      ||
+      OR연산자
+      둘 중 하나만 참이여도 true
+
+      ex) console.log(10 === 10 || 20 === 30); //true
+
+  ☆ 조건문
+
+    주어진 조건에 따라 결과값을 출력하는 구문
+    조건으로는 비교 연산자 또는 논리 연산자 사용
+
+    · if 문
+
+      if (조건) {수행할 명령}
+
+      ex)
+      var a = 20;
+      var b = 40;
+
+      if ( a < b ) {
+        console.log("a는 b보다 작다.");
+      }
+
+      만약 a<b가 참이라면 중괄호 안의 코드를 실행
+
+    · if~else 문
+
+      조건이 true면 if문 false면 else문 실행
+
+      ex)
+      var a = 20;
+      var b = 40;
+
+      if ( a > b ) {
+        console.log("a는 b보다 작다.");
+      } else {
+        console.log("a는 b보다 작거나 같다.");
+      }
+
+    · else if 문
+
+      여러개의 조건문을 생성할 때 사용
+
+      ex)
+      var a = 20;
+      var b = 40;
+      var c = 60;
+
+      if ( a > b ) {
+        console.log("a는 b보다 크다.");
+      } else if ( b > c ) {
+        console.log("b는 c보다 크다.");
+      } else if ( a < c ) {
+        console.log("a는 c보다 작다.");
+      } else {
+        console.log("모든 조건을 만족하지 않는다.");
+      }
+
+    · 중첩 if 문
+
+      if문 안에 또다른 if문을 삽입할 때 사용
+
+      ex)
+      var a = 20;
+      var b = 40;
+
+      if ( a !== b ) {
+        if ( a > b ) {console.log("a는 b보다 작다.");
+        } else {
+          console.log("a는 b보다 작다");}
+      } else {
+        console.log("a는 b보다 작거나 같다.");
+      }
+
+  ☆ 반복문
+
+    · for 문
+      
+      for (초기화한 변수값; 조건; 증감 표시) {수행할 명령}
+
+      ex)
+      for (var i = 0; i < 10; i++) {
+        console.log(i);
+      }
+
+    · while 문
+
+      while (조건) {수행할 명령}
+
+      ex)
+      var num = 0;
+      while (num < 10) {
+        console.log(num);
+        num++;
+      }
+
+      num<10이 참일 동안 중괄호 안의 코드를 실행
+
+    · do~while 문
+
+      do {수행할 명령} while (조건);
+
+      ex)
+      var i = 12;
+      do {
+        console.log(i);
+        i++;
+      } while (i < 10);
+      
+      while의 조건과 관계 없이, do의 명령을 무조건 실행부터 한다.
+
+    

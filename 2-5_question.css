@@ -1,0 +1,17 @@
+question {
+  box-sizing: border-box;
+  justify-content: space-between;
+  flex-basis: 333px;
+  transform: translate(-50%, -50%);
+  border: none;
+  outline: none;
+  justify-content: flex-end;
+  flex-direction: column;
+  justify-content: flex-start;
+  filter: contrast(15%);
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  align-items: flex-end;
+  z-index: 99;
+  visibility: hidden;
+}
